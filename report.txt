@@ -1,12 +1,12 @@
 ========================================
 Network Security Report
 Target: scanme.nmap.org
-Generated: 2025-08-22 14:17:28 UTC
+Generated: 2025-08-22 14:52:33 UTC
 Author: codio@marginradar-montanaarchive
 ========================================
 
 Overview
-This is an auto-generated security report.
+This is an auto-generated security report produced by a Bash-based scanner.
 
 ----------------------------------------
 1) Open Ports and Detected Services
@@ -15,38 +15,32 @@ This is an auto-generated security report.
 80/tcp    open     http       Apache httpd 2.4.7 ((Ubuntu))
 9929/tcp  open     nping-echo Nping echo
 31337/tcp open     tcpwrapped
+No open TCP ports found or scan blocked.
+
+OS Detection (best effort)
+OS detection unavailable (may require elevated privileges).
 
 ----------------------------------------
 2) Potential Vulnerabilities Identified
 ----------------------------------------
-No direct NSE vulnerability matches found.
-
---- Analyzing Service Versions ---
-[!!] OpenSSH 6.6.1p1 is old
-
-Querying NVD for vulnerabilities in: OpenSSH 6.6.1p1...
-  [+] No vulnerabilities found in NVD for this keyword search.
-[!!] Apache 2.4.7 is outdated
-
-Querying NVD for vulnerabilities in: Apache httpd 2.4.7...
-  CVE ID: CVE-2021-44224
-  Description: A crafted URI sent to httpd configured as a forward proxy (ProxyRequests on) can cause a crash (NULL pointer dereference) or, for configurations mixing forward and reverse proxy declarations, can allow for requests to be directed to a declared Unix Domain Socket endpoint (Server Side Request Forgery). This issue affects Apache HTTP Server 2.4.7 up to 2.4.51 (included).
-  Severity: HIGH
----
+Scan failed or was blocked.
 
 ----------------------------------------
 3) Recommendations
 ----------------------------------------
-- Patch and upgrade vulnerable services immediately
-- Apply vendor security updates
-- Restrict network access to critical services
-- Enable monitoring and alerting
+- Enforce HTTPS: close 80/tcp or redirect HTTP→HTTPS; enable HSTS
+- Update Apache to 2.4.57+ and OpenSSH to a supported 9.x release
+- Disable weak TLS ciphers/protocols (no RC4/3DES/LOW; disable TLS 1.0/1.1)
+- Harden SSH: disable CBC and diffie-hellman-group1; prefer curve25519/ed25519, chacha20-poly1305
+- Restrict/close uncommon services like nping-echo (9929/tcp)
+- Limit exposure with host firewall/ACLs; allow-list required source IPs only
+- Monitor with logs/alerts; schedule recurring scans after changes
 
 ----------------------------------------
 4) Appendix & Footer
 ----------------------------------------
-- Tools used: nmap, curl, jq
-- API results limited for testing
+Tools: nmap (vuln, ssh2-enum-algos, ssl-enum-ciphers, http-headers, http-title), curl, jq
+Notes: Findings are best-effort; confirm with patch advisories and vendor guidance.
 
 End of report.
 ========================================
