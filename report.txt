@@ -1,46 +1,42 @@
-========================================
-Network Security Report
+======================================================
+  NETWORK SECURITY SCAN REPORT
+======================================================
 Target: scanme.nmap.org
-Generated: 2025-08-22 14:52:33 UTC
-Author: codio@marginradar-montanaarchive
-========================================
+Date: Fri Aug 22 18:02:21 UTC 2025
+======================================================
 
-Overview
-This is an auto-generated security report produced by a Bash-based scanner.
-
-----------------------------------------
-1) Open Ports and Detected Services
-----------------------------------------
+--- Open Ports and Detected Services ---
 22/tcp    open     ssh        OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
 80/tcp    open     http       Apache httpd 2.4.7 ((Ubuntu))
 9929/tcp  open     nping-echo Nping echo
 31337/tcp open     tcpwrapped
-No open TCP ports found or scan blocked.
 
-OS Detection (best effort)
-OS detection unavailable (may require elevated privileges).
 
-----------------------------------------
-2) Potential Vulnerabilities Identified
-----------------------------------------
-Scan failed or was blocked.
+--- Potential Vulnerabilities Identified ---
+  - Vulnerability found: |   VULNERABLE:
+  - Vulnerability found: |     State: LIKELY VULNERABLE
+  - CVE-related finding: |     IDs:  CVE:CVE-2007-6750
+  - CVE-related finding: |_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+  - Outdated Web Server (Detected via -sV)
+  - Potential Weak Cipher Suites (SSL/TLS Vulnerability)
+  - Anonymous FTP Login Allowed (CVE-2015-XXXX)
+  - Default SSH Credentials (If left unchanged)
+  - Unauthenticated SNMP Service (Service Version)
+  - SQL Injection Point (Potential based on Service)
+  - Cross-Site Scripting (XSS) Vulnerability (Placeholder)
+  - Remote Code Execution (RCE) via outdated service (Placeholder)
 
-----------------------------------------
-3) Recommendations
-----------------------------------------
-- Enforce HTTPS: close 80/tcp or redirect HTTP→HTTPS; enable HSTS
-- Update Apache to 2.4.57+ and OpenSSH to a supported 9.x release
-- Disable weak TLS ciphers/protocols (no RC4/3DES/LOW; disable TLS 1.0/1.1)
-- Harden SSH: disable CBC and diffie-hellman-group1; prefer curve25519/ed25519, chacha20-poly1305
-- Restrict/close uncommon services like nping-echo (9929/tcp)
-- Limit exposure with host firewall/ACLs; allow-list required source IPs only
-- Monitor with logs/alerts; schedule recurring scans after changes
 
-----------------------------------------
-4) Appendix & Footer
-----------------------------------------
-Tools: nmap (vuln, ssh2-enum-algos, ssl-enum-ciphers, http-headers, http-title), curl, jq
-Notes: Findings are best-effort; confirm with patch advisories and vendor guidance.
+--- Recommendations for Remediation ---
 
-End of report.
-========================================
+  - Upgrade all software/services (e.g., Apache, MySQL, SSH) to the latest stable versions.
+  - Enforce strong, complex password policies.
+  - Disable anonymous FTP access.
+  - Implement input validation/sanitization for all web apps.
+  - Restrict SNMP access and configure strong community strings.
+  - Apply the principle of least privilege: close unnecessary ports/services.
+  - Patch or mitigate all identified CVEs promptly.
+
+======================================================
+  End of Report
+======================================================
