@@ -1,0 +1,32 @@
+========================================
+Network Security Report
+Target: scanme.nmap.org
+Generated: 2025-08-18 19:49:41 UTC
+Author: codio@marginradar-montanaarchive
+========================================
+
+Overview
+This is an auto-generated security report.
+
+----------------------------------------
+1) Open Ports and Detected Services
+----------------------------------------
+22/tcp    open     ssh        OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+80/tcp    open     http       Apache httpd 2.4.7 ((Ubuntu))
+9929/tcp  open     nping-echo Nping echo
+31337/tcp open     tcpwrapped
+
+----------------------------------------
+2) Potential Vulnerabilities Identified
+----------------------------------------
+|   VULNERABLE:
+|     State: LIKELY VULNERABLE
+
+--- Analyzing Service Versions ---
+[!!] OpenSSH 6.6.1p1 is old
+
+Querying NVD for vulnerabilities in: OpenSSH 6.6.1p1...
+  [+] No vulnerabilities found in NVD for this keyword search.
+[!!] Apache 2.4.7 is outdated
+
+Querying NVD for vulnerabilities in: Apache httpd 2.4.7...

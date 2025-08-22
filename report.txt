@@ -1,0 +1,52 @@
+========================================
+Network Security Report
+Target: scanme.nmap.org
+Generated: 2025-08-22 14:17:28 UTC
+Author: codio@marginradar-montanaarchive
+========================================
+
+Overview
+This is an auto-generated security report.
+
+----------------------------------------
+1) Open Ports and Detected Services
+----------------------------------------
+22/tcp    open     ssh        OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+80/tcp    open     http       Apache httpd 2.4.7 ((Ubuntu))
+9929/tcp  open     nping-echo Nping echo
+31337/tcp open     tcpwrapped
+
+----------------------------------------
+2) Potential Vulnerabilities Identified
+----------------------------------------
+No direct NSE vulnerability matches found.
+
+--- Analyzing Service Versions ---
+[!!] OpenSSH 6.6.1p1 is old
+
+Querying NVD for vulnerabilities in: OpenSSH 6.6.1p1...
+  [+] No vulnerabilities found in NVD for this keyword search.
+[!!] Apache 2.4.7 is outdated
+
+Querying NVD for vulnerabilities in: Apache httpd 2.4.7...
+  CVE ID: CVE-2021-44224
+  Description: A crafted URI sent to httpd configured as a forward proxy (ProxyRequests on) can cause a crash (NULL pointer dereference) or, for configurations mixing forward and reverse proxy declarations, can allow for requests to be directed to a declared Unix Domain Socket endpoint (Server Side Request Forgery). This issue affects Apache HTTP Server 2.4.7 up to 2.4.51 (included).
+  Severity: HIGH
+---
+
+----------------------------------------
+3) Recommendations
+----------------------------------------
+- Patch and upgrade vulnerable services immediately
+- Apply vendor security updates
+- Restrict network access to critical services
+- Enable monitoring and alerting
+
+----------------------------------------
+4) Appendix & Footer
+----------------------------------------
+- Tools used: nmap, curl, jq
+- API results limited for testing
+
+End of report.
+========================================
